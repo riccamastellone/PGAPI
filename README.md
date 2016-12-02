@@ -1,74 +1,9 @@
 # PGAPI
 http://www.paginegialle.it/
-These are the API to access the Italian yellow pages. 
-Ecco le API per accedere alle pagine gialle italiane
 
-##ITALIANO
-###Installazione
- - Scarica ed estrai l'archivio
- - `composer install`
- 
-####Requisiti
- - PHP >= 5.4
- - Il pacchetto utilizza il microframework flight (http://flightphp.com/) che funziona sia con Apache che con Nginx. La versione che andate ad installare disponibile in questo pacchetto è predisposta per Apache ma potete anche configurarla per Nginx
- - Permessi di scrittura nella cartella `Cookies/`
+These are the API to access the Italian Pagine Gialle. 
 
-###Utilizzo
-Una volta installato il pacchetto potrai accedere alle api come ti è più comodo, o utilizzandolo come server esterno o come script interno.
-<br><br>
-Consideriamo le api installate alla seguente URL: http://your_url.dom. Le primitive messe a disposizione sono le seguenti:<br>
-<b>-http://your_url.dom/number/number%20to%20search :</b> dove "number%20to%20search" è il numero di telefono codificato tramite url encoding (sono ammessi gli spazi)<br>
-<b>-http://your_url.dom/company/company%20to%20search :</b> dove "company%20to%20search" è il nome dell'azienda codificato tramite url encoding (sono ammessi gli spazi)<br>
-<b>-http://your_url.dom/place/restricted%20area :</b> dove "restricted%20area" è la zona territoriale a cui restringere la ricerca codificato tramite url encoding (sono ammessi gli spazi). Sono ammessi tutti gli indirizzi postali, i CAP, le province, i comuni, le regioni, anche le frazioni specificando la provincia. Non è possibile usufruire della geolocalizzazione.<br>
-<b>-http://your_url.dom/company/company%20to%20search/place/restricted%20area :</b> dove "company%20to%20search" è il nome dell'azienda codificato tramite url encoding (sono ammessi gli spazi) e "restricted%20area" è la zona territoriale a cui restringere la ricerca codificato tramite url encoding (sono ammessi gli spazi) per come utilizzarlo riferirsi al punto precedente<br>
-<b>-http://your_url.dom/category/0000000000 : </b>dove "0000000000" è il numero della categoria di aziende corrispondente. Puoi ottenere questo numero da una risposta precedente su un'altra ricerca<br>
-<b>-http://your_url.dom/search/term%20to%20search :</b> dove "term%20to%20search" è la ricerca generica da effettuare codificato tramite url encoding (sono ammessi gli spazi)<br>
-
-###Risposta
-Ecco una risposta tipica a una chiamata alle API
-
-```JSON
-{
-    "result": [
-        {
-            "name": "...",
-            "subtitle": "..." | "" | null,
-            "description": "..." | null,
-            "image": "..." | null,
-            "place": {
-                "address": "..." | null,
-                "postal-code": "..." | null,
-                "locality": "..." | null,
-                "region": "..." | null,
-                "state": "..." | null,
-                "latitude": "..." | null,
-                "longitude": "..." | null
-            },
-            "telephone": "..." | null,
-            "website": "..." | null,
-            "category": "...",
-            "category-number": "..."
-        },
-        {
-            ...
-        }
-    ],
-    "status": "OK" | "ERROR",
-    "length": ...,
-    "source": "http:\/\/www.paginegialle.it\/ricerca\/...",
-    "query": "...",
-    "nextPage": null,
-}
-```
-**NOTE**
-Nel caso sopravvenga un errore lo status passa da `OK` a `ERROR`.
-`nextPage` contiene l'url da chiamare per ottenere la prossima lista di risultati
-
-###Uso con PHP
-Si può anche usare direttamente la classe predisposta nel file <b>class.php</b>. Per la chiamata rivolgersi a come vengono implementate le URL sul sito delle pagine gialle.
-
-##ENGLISH
-###Install
+###Installation
  - Download and extract the archive
  - `composer install`
  
@@ -89,7 +24,6 @@ Consider bees installed at the following URL: http://your_url.dom. The primitive
 <b> -http://your_url.dom/search/term%20to%20search: </b> where "term%20to%20search" is a generic research encoded using url encoding (spaces are allowed) <br>
 
 ###Response
-Here is a typical response to a call to the API
 
 ```JSON
 {
@@ -127,6 +61,3 @@ Here is a typical response to a call to the API
 **NOTE**
 If an error will overtake the status changes from `OK` to `ERROR`.
 `nextPage` contains the url to retrieve the next set of results
-
-### Using PHP
-You can also directly use the class in the <b> class.php script</b>. For the direct call see how are implemented as URLs on the site of the yellow pages.
