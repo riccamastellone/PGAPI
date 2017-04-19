@@ -22,7 +22,7 @@ Example script base url: http://your_url.dom.
 - http://your_url.dom/category/0000000000: </b> where "0000000000" is the number of the category of the corresponding companies. You can get this number from a previous response on another search <br>
 - http://your_url.dom/search/term%20to%20search: </b> where "term%20to%20search" is a generic research encoded using url encoding (spaces are allowed) <br>
 
-###Response
+### Response
 
 ```JSON
 {
